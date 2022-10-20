@@ -72,12 +72,24 @@ class JerarquiaForm(forms.ModelForm):
     class Meta:
         model = Jerarquia
         fields = '__all__'
-
+#---------------------------------
 class TareasForm(forms.ModelForm):
     class Meta:
         model = Tarea
         fields = '__all__'
 
+        widgets = {
+            "Fecha_desde": forms.SelectDateWidget(),
+            "Fecha_hasta": forms.SelectDateWidget()
+        }
+
+        #widgets = {
+         #   "Fecha_hasta": forms.SelectDateWidget()
+        #}
+        
+
+
+#------------------------------
 class TareasSubForm(forms.ModelForm):
     class Meta:
         model = TareaSub

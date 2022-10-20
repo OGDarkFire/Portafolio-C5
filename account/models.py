@@ -1,5 +1,12 @@
+from datetime import date, datetime
+from email.policy import default
+from email.utils import formatdate
+from tkinter import Y
+from tokenize import blank_re
+from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.forms import DateField
 
 # Create your models here.
 
@@ -87,7 +94,7 @@ class TareaSub(models.Model):
     Nombre_TareaS = models.CharField(max_length=50)
     ResponsableS = models.ForeignKey(Usuario, on_delete=models.PROTECT)
     TareaMadreS = models.ForeignKey(Tarea, on_delete=models.PROTECT)
-    Fecha_desdeS = models.DateField()
+    Fecha_desdeS = models.DateField(auto_now_add=False, auto_now=False, blank=True)
     Fecha_hastaS = models.DateField()
     DescripcionS = models.TextField()
 
